@@ -266,12 +266,6 @@ class Comment extends DataObject
      */
     public function getParent()
     {
-        // this is wrapped in withNoReplacement() because it's called by ViewableData::__get()
-        // which looks for a `"get$property"` method, which itself is called by
-        // AssetControllExtension::findAssets()
-        Deprecation::withNoReplacement(function () {
-            Deprecation::notice('4.0.0', 'Use $this->Parent() instead');
-        });
         return $this->BaseClass && $this->ParentID
             ? DataObject::get_by_id($this->BaseClass, $this->ParentID, true)
             : null;
