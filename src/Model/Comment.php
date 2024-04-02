@@ -266,6 +266,7 @@ class Comment extends DataObject
      */
     public function getParent()
     {
+        //Pixelpoems fork
         return $this->BaseClass && $this->ParentID
             ? DataObject::get_by_id($this->BaseClass, $this->ParentID, true)
             : null;
